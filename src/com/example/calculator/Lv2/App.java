@@ -31,6 +31,11 @@ public class App {
             scanner.nextLine();
 
             double result = calculator.calculate(num1, num2, operateType);// calculatorLv2 에서 계산된 결과를 출력
+            if (Double.isNaN(result)) {
+                System.out.println("다시 입력해주세요.");
+                continue;
+            }
+
             System.out.println("결과 : " + df.format(result)); //결과가 4.0 이처럼 뒤에 0인 경우 출력하지 않음
             calculator.queueAddInResult(result); // queue 에 결과를 저장한다
             if(askContinue.askContinue()){  //계산을 더 할 건지 물어보는 함수, exit 입력시 반복문 종료

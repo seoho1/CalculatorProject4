@@ -6,9 +6,11 @@ import java.util.Queue;
 
 public class Calculator {
     /* 연산 결과를 저장하는 컬렉션 타입 필드 선언 및 생성 */
-    double result = 0;
-    Queue<Double> queue = new LinkedList<>();
     DecimalFormat df =  new DecimalFormat();
+
+    private double result = 0;
+    private Queue<Double> queue = new LinkedList<>();
+
     public void queueAddInResult(double result){
         queue.add(result);
         System.out.print("저장된 값: ");
@@ -24,22 +26,26 @@ public class Calculator {
 
 
 
-    public double calculate(int FistNumber, int SecondNumber, String operateType) {
+    public double calculate(int FirstNumber, int SecondNumber, String operateType) {
         switch (operateType) {
             case "+":
-                result = FistNumber + SecondNumber;
+                result = FirstNumber + SecondNumber;
                 break;
 
             case "-":
-                result = FistNumber - SecondNumber;
+                result = FirstNumber - SecondNumber;
                 break;
 
             case "*":
-                result = FistNumber * SecondNumber;
+                result = FirstNumber * SecondNumber;
                 break;
 
             case "/":
-                result =  (double) FistNumber / SecondNumber;
+                if (SecondNumber == 0) {
+                    System.out.println("분모가 0이면 나눌 수 없습니다.");
+                    return Double.NaN; // 계산 불가능한 경우 NaN 반환
+                }
+                result =  (double) FirstNumber / SecondNumber;
                 break;
         }  return result;
     }
