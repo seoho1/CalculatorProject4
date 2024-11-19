@@ -30,7 +30,7 @@ public class App {
             int num2 = scanner.nextInt();
             scanner.nextLine();
 
-            double result = calculator.calculate(num1, num2, operateType);// calculatorLv2 에서 계산된 결과를 출력
+            double result = calculator.calculate(num1, num2, operateType);// Calculator 에서 계산된 결과를 출력
             if (Double.isNaN(result)) {
                 System.out.println("다시 입력해주세요.");
                 continue;
